@@ -1,0 +1,81 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+.sky {
+  background: url("img/background-dino/sky.png");
+  animation: sky 30s linear infinite;
+  height: 100vh;
+  width: 100%;
+}
+.floor {
+  background: url("img/background-dino/floor-1.png");
+  animation: floor-one 10s linear infinite;
+  height: 100vh;
+  display: flex;
+}
+.dino {
+  border: solid 1px black;
+  height: 474px;
+  width: 682px;
+  margin: auto;
+  position: relative;
+  top: 485px;
+  background: url("img/run-8.png");
+  animation: run 1s steps(8) infinite;
+}
+.dino-jump {
+  background: url("img/jump-12.png");
+  animation: jump 1.5s steps(12);
+}
+.meteorite {
+  background: url("img/meteorite.png");
+  height: 483px;
+  width: 1604px;
+  animation: meteorite;
+}
+@keyframes floor-one {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -5000px;
+  }
+}
+@keyframes sky {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -1920px;
+  }
+}
+@keyframes run {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -5456px;
+  }
+}
+@keyframes jump {
+  0% {
+    background-position: 0px;
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-750px);
+  }
+  100% {
+    background-position: -8160px;
+    transform: translateY(0);
+  }
+}
