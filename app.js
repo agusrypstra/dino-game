@@ -1,37 +1,39 @@
 "use strict";
 
 import Dino from "./classes/dino.js";
+import Meteorite from "./classes/meteorite.js";
 
-let jump = false;
-let dinoWidth = 682;
-let dinoHeight = 474;
+const dinoWidth = 682;
+const dinoHeight = 474;
 
-let dinoLeft;
-let dinoRight;
-let dinoTop;
-let dinoBottom;
+const meteoriteWidth = 500;
+const meteoriteHeight = 151;
+
 const dino = document.getElementById("dino");
-let position = dino.getBoundingClientRect();
+const newDino = new Dino(dinoWidth, dinoHeight, 0, 0, 0, dino, 5000);
+const meteorite = document.getElementById("meteorite");
+let req;
 
-const newDino = new Dino(
-  dinoWidth,
-  dinoHeight,
-  position.x,
-  position.y,
-  0,
-  dino,
-  5000
-);
 document.addEventListener("DOMContentLoaded", () => {
+  req = requestAnimationFrame(animar);
   document.addEventListener("mousedown", () => {
     newDino.jump();
   });
-  window.requestAnimationFrame(animar);
 });
 function animar() {
-  dinoLeft = position.x;
-  dinoRight = position.x + dinoWidth;
-  dinoTop = position.y;
-  dinoBottom = position.y + dinoHeight;
-  window.requestAnimationFrame(animar);
+  let dinoPosition = dino.getBoundingClientRect();
+  let meteoritePosition = meteorite.getBoundingClientRect();
+  req = requestAnimationFrame(animar);
+  console.log("object");
+  if (checkIfMeteoriteTouchDino(dinoPosition, meteoritePosition)) {
+    cancelAnimationFrame(req);
+  }
 }
+const checkIfMeteoriteTouchDino = (dinoPosition, meteoritePosition) => {
+  return (
+    dinoPosition.left < meteoritePosition.right &&
+    dinoPosition.right > meteoritePosition.left &&
+    dinoPosition.top < meteoritePosition.bottom &&
+    dinoPosition.bottom > meteoritePosition.top
+  );
+};

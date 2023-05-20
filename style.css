@@ -18,26 +18,43 @@ body {
   animation: floor-one 10s linear infinite;
   height: 100vh;
   display: flex;
+  align-items: flex-end;
+}
+.game {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  align-items: center;
 }
 .dino {
   border: solid 1px black;
   height: 474px;
   width: 682px;
   margin: auto;
-  position: relative;
-  top: 485px;
   background: url("img/run-8.png");
   animation: run 1s steps(8) infinite;
 }
 .dino-jump {
   background: url("img/jump-12.png");
-  animation: jump 1.5s steps(12);
+  animation: jump 2s steps(12);
+}
+.dino-die {
+  background: url("img/die-8.png");
+  animation: run 2s steps(8);
 }
 .meteorite {
   background: url("img/meteorite.png");
-  height: 483px;
-  width: 1604px;
-  animation: meteorite;
+  width: 500px;
+  height: 151px;
+  animation: meteorite 3s linear infinite;
+}
+@keyframes meteorite {
+  0% {
+    transform: translateX(1000);
+  }
+  100% {
+    transform: translateX(-3840px);
+  }
 }
 @keyframes floor-one {
   0% {
@@ -68,11 +85,11 @@ body {
     background-position: 0px;
     transform: translateY(0);
   }
-  15% {
-    transform: translateY(0);
-  }
   50% {
-    transform: translateY(-750px);
+    transform: translateY(-1000px);
+  }
+  80% {
+    transform: translateY(-200);
   }
   100% {
     background-position: -8160px;
