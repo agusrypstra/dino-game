@@ -70,7 +70,7 @@ body {
 }
 .dino-jump {
   background: url("img/jump-12.png");
-  animation: jump 2s steps(12);
+  animation: jump 1.5s steps(12);
 }
 .dino-die {
   background: url("img/die-8.png");
@@ -79,10 +79,10 @@ body {
 }
 .meteorite {
   background: url("img/meteorite.png");
-  width: 10%;
-  height: 8%;
   background-size: cover;
   position: absolute;
+  height: 100px;
+  width: 100px;
   /* top: -30%; */
   animation: meteorite 3s linear;
 }

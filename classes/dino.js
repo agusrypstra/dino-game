@@ -17,7 +17,7 @@ export default class Dino {
       setTimeout(() => {
         this.ref.classList.toggle("dino-jump");
         this.jumpState = false;
-      }, 2000);
+      }, 1500);
     }
   }
   die() {
