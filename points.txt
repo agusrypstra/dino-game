@@ -1,0 +1,4 @@
+todo
+
+-hacer que las estrellas y los meteoritos se generen de manera aleatoria
+-pasar el juego a una clase

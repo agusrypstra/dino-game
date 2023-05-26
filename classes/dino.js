@@ -1,25 +1,27 @@
 export default class Dino {
-  constructor(width, height, positionX, positionY, points, ref, time) {
-    this.width = width;
-    this.height = height;
-    this.positionX = positionX;
-    this.positionY = positionY;
-    this.points = points;
+  constructor(ref) {
     this.ref = ref;
-    this.time = time;
+    this.width = this.ref.clientWidth;
+    this.height = this.ref.height;
     this.jumpState = false;
+  }
+  run() {
+    let animations = document.styleSheets[0].cssRules[0];
+    let keyframes = animations.cssRules;
+    keyframes[1].style.backgroundPosition = `-${this.ref.width * 8}px`;
   }
   jump() {
     if (!this.jumpState) {
-      this.ref.classList.add("dino-jump");
+      this.ref.classList.toggle("dino-jump");
       this.jumpState = true;
       setTimeout(() => {
-        this.ref.classList.remove("dino-jump");
+        this.ref.classList.toggle("dino-jump");
         this.jumpState = false;
-      }, 2000);
+      }, 1500);
     }
   }
   die() {
+    // alert("Perdiste");
     this.ref.classList.add("dino-die");
   }
 }
