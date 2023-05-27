@@ -13,8 +13,8 @@ export default class GameManager {
     this.dino = new Dino(dinoRef);
     this.dino.run();
   }
-
   render() {
+    this.points++;
     this.pointsRef.innerHTML = `Points: ${this.points}`;
   }
   procces_user_input() {
@@ -81,7 +81,7 @@ export default class GameManager {
     this.render();
 
     if (this.inGame) {
-      this.animationReq = requestAnimationFrame(this.gameLoop);
+      this.animationReq = requestAnimationFrame(() => this.gameLoop());
     } else {
       alert("Juego finalizado");
     }

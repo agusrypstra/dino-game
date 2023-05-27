@@ -81,8 +81,8 @@ body {
   background: url("img/meteorite.png");
   background-size: cover;
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 2rem;
+  width: 2rem;
   /* top: -30%; */
   animation: meteorite 3s linear;
 }
