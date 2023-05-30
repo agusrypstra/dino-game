@@ -6,93 +6,12 @@
     background-position: 1720px;
   }
 }
-* {
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
-}
-body {
-  height: 100vh;
-  width: 100vw;
-}
-.container {
-  height: 100%;
-  width: 100%;
-  /* max-height: 100vh;
-  max-width: 100vw; */
-}
-.sky {
-  background: url(img/background-dino/sky.png);
-  animation: sky 45s linear infinite;
-  height: 70%;
-  width: 100vw;
-  position: fixed;
-}
-.points-container {
-  display: flex;
-  justify-content: flex-end;
-  padding: 1rem 2rem;
-}
-/* .star {
-  background: url("img/star.png");
-  width: 50px;
-  height: 50px;
-  top: -20%;
-  background-size: cover;
-  position: relative;
-} */
-.floor {
-  background: url(img/background-dino/floor.png);
-  animation: floor 10s linear infinite;
-  height: 40%;
-  width: 100vw;
-  position: fixed;
-  top: 60%;
-  background-size: cover;
-}
-.game {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-.dino {
-  border: solid 1px black;
-  height: 150px;
-  width: 150px;
-  margin: auto;
-  background: url("img/run-8.png");
-  background-size: cover;
-  animation: run 0.7s steps(8) infinite;
-  position: fixed;
-  top: 70%;
-  left: 30%;
-}
-.dino-jump {
-  background: url("img/jump-12.png");
-  animation: jump 1.5s steps(12);
-}
-.dino-die {
-  background: url("img/die-8.png");
-  animation: die 3s steps(8);
-  width: 220px;
-}
-.meteorite {
-  background: url("img/meteorite.png");
-  background-size: cover;
-  position: absolute;
-  height: 2rem;
-  width: 2rem;
-  /* top: -30%; */
-  animation: meteorite 3s linear;
-}
-
 @keyframes die {
   0% {
     background-position: 0;
   }
   100% {
-    background-position: 1727px;
+    background-position: -1727px;
   }
 }
 @keyframes meteorite {
@@ -126,10 +45,119 @@ body {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-300px);
+    transform: translateY(-30vh);
   }
   100% {
     background-position: -2593px;
     transform: translateY(0);
   }
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+  /* max-height: 100vh;
+  max-width: 100vw; */
+}
+.sky {
+  background: url(img/background-dino/sky.png);
+  animation: sky 45s infinite linear;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+.information-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.points-container {
+  background-color: black;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 2rem;
+}
+.time-container {
+  background-color: aqua;
+  height: 100%;
+
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 2rem;
+}
+.star {
+  background: url("img/star.png");
+  width: 50px;
+  height: 50px;
+  top: -20%;
+  background-size: contain;
+  position: relative;
+  animation: meteorite 2s linear;
+}
+.clock {
+  background: url("img/cronometer.png");
+  width: 3rem;
+  height: 3rem;
+  background-position: center;
+  position: relative;
+  animation: meteorite 1.5s linear;
+}
+.floor-1 {
+  background: url(img/background-dino/floor-1.png);
+  animation: floor 10s infinite linear;
+  background-repeat: no-repeat repeat-x;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+.crash {
+  background: url(img/crash.jpg);
+  width: 8rem;
+  height: 8rem;
+}
+.dino {
+  border: solid 1px black;
+  height: 150px;
+  width: 150px;
+  margin: auto;
+  background: url("img/run-8.png");
+  background-size: cover;
+  animation: run 0.7s steps(8) infinite;
+  position: fixed;
+  top: 70%;
+  left: 30%;
+}
+.dino-jump {
+  background: url("img/jump-12.png");
+  animation: jump 1.5s steps(12);
+}
+.dino-die {
+  background: url("img/die-8.png");
+  animation: die 3s steps(8);
+  width: 220px;
+}
+.meteorite {
+  background: url("img/meteorite.png");
+  background-size: cover;
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  /* top: -30%; */
+  animation: meteorite 3s linear;
 }

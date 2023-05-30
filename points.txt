@@ -1,4 +1,5 @@
 todo
 
--hacer que las estrellas y los meteoritos se generen de manera aleatoria
--pasar el juego a una clase
+-corregir el fondo que se bugea     LITO
+-finalizar el generado de objetos cuando se pierde  
+-pasar los bonus/meteoritos a una clase padre
