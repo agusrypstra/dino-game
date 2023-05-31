@@ -15,12 +15,13 @@ export default class GameManager {
     this.timeRef = timeRef;
     this.skyRef = skyRef;
     this.floorRef = floorRef;
+    this.audio = new Audio();
   }
   gameLoop() {
     this.procces_user_input();
     this.actualizarJuego();
     this.render();
-    if (this.inGame) {
+    if (this.inGame && this.time > 0) {
       this.animationReq = requestAnimationFrame(() => this.gameLoop());
     } else {
       alert("Juego finalizado");
@@ -55,8 +56,8 @@ export default class GameManager {
           case "clock":
             this.clockColission(element);
             break;
-
           default:
+            console.log("error");
             break;
         }
       }
@@ -64,11 +65,17 @@ export default class GameManager {
   }
   clockColission(element) {
     this.time += 10;
+    this.audio.src = "../sounds/time.mp3";
+    this.audio.volume = 0.2;
+    this.audio.play();
     element.remove();
   }
   starColission(element) {
     this.points += 50;
     element.remove();
+    this.audio.src = "../sounds/coin.mp3";
+    this.audio.volume = 0.5;
+    this.audio.play();
   }
   meteoriteColission(element) {
     this.dino.die();

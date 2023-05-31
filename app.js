@@ -21,19 +21,29 @@ document.addEventListener("DOMContentLoaded", () => {
     skyRef,
     floorRef
   );
+  let audio = new Audio();
+  audio.src = "./sounds/soundtrack.mp3";
+
+  document.addEventListener("click", () => audio.play());
   const newMeteorite = new Meteorite(containerRef);
   const newStar = new Star(containerRef);
   const newClock = new Clock(containerRef);
   Game.gameLoop();
-  // setInterval(() => {
-  //   newMeteorite.generateObject();
-  // }, 2000);
   setInterval(() => {
-    newClock.generateObject();
+    if (Game.inGame && Game.time > 0) {
+      newMeteorite.generateObject();
+    }
   }, 2000);
-  // setInterval(() => {
-  //   newStar.generateObject();
-  // }, 3500);
+  setInterval(() => {
+    if (Game.inGame && Game.time > 0) {
+      newClock.generateObject();
+    }
+  }, 10000);
+  setInterval(() => {
+    if (Game.inGame && Game.time > 0) {
+      newStar.generateObject();
+    }
+  }, 3500);
   setInterval(() => {
     Game.time--;
     console.log(Game.time);
