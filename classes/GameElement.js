@@ -1,15 +1,14 @@
 export default class GameElement {
   constructor(containerRef) {
     this.containerRef = containerRef;
-    this.elements = [];
   }
+  //genera un elemento en una posicion random
   generateObject(type) {
     let element = document.createElement("div");
     element.className = `${type} element`;
     let posY = this.generateRandomY();
     element.style.top = posY + "px";
     this.containerRef.appendChild(element);
-    this.elements.push(element);
   }
   generateRandomY() {
     let n = Math.floor(

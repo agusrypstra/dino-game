@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test 1</title>
+    <title>Dino Game</title>
   </head>
   <body>
     <div class="container" id="container">
@@ -19,6 +19,42 @@
       <div class="floor-1" id="floor"></div>
       <div class="star" id="star"></div>
       <div class="dino" id="dino"></div>
+    </div>
+    <div class="menu-container">
+      <h1>Dino game</h1>
+      <div class="btn-container">
+        <div class="menu-btn" id="play-btn">Play</div>
+        <div class="menu-btn" id="guide-btn">Guide</div>
+      </div>
+    </div>
+    <div class="guide-container display-none">
+      <div class="close-button">X</div>
+      <div class="guide-information-container">
+        <div class="info">
+          <h1>BONUS</h1>
+          <img src="img/star.png" alt="star" />
+          <p class="paraf">
+            The Stars gives to you 100 points, to increase your score.
+          </p>
+          <img src="img/cronometer.png" alt="clock" />
+          <p class="paraf">
+            If you take the cronometer, you will have 10 seconds more.
+          </p>
+        </div>
+        <div class="info">
+          <h1>OBSTACLES</h1>
+          <img src="img/meteorite.png" style="width: 12%" alt="star" />
+          <p class="paraf">
+            The Meteorites are your enemies. If you are hitted by one, you'll be
+            death.
+          </p>
+          <h2 style="font-size: x-large">TIME</h2>
+          <p class="paraf">
+            The time is other of your opponents. If the count reach to zero, the
+            game is over.
+          </p>
+        </div>
+      </div>
     </div>
   </body>
   <script type="module" src="app.js"></script>

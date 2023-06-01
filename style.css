@@ -81,6 +81,8 @@
 body {
   height: 100vh;
   width: 100vw;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 .container {
   height: 100vh;
@@ -88,21 +90,92 @@ body {
   /* max-height: 100vh;
   max-width: 100vw; */
 }
+.display-none {
+  display: none !important;
+}
+.guide-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+  padding: 2rem;
+  position: fixed;
+  top: 10%;
+  left: 23%;
+  width: 50%;
+  border-radius: 25%;
+  /* background: url(img/menu-background.webp); */
+  background-size: cover;
+  align-items: center;
+}
+.information-container {
+  padding: 2em;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.guide-information-container {
+  width: 100%;
+  height: 85%;
+  background-color: rgb(138, 233, 50);
+  padding: 2rem;
+  border-radius: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.close-button {
+  font-size: x-large;
+  position: fixed;
+  top: 15%;
+  left: 70%;
+  cursor: pointer;
+}
+.info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.menu-container {
+  border-radius: 25%;
+  width: 20%;
+  height: 45%;
+  border: solid 1px black;
+  position: fixed;
+  top: 30%;
+  left: 40%;
+  background: url(img/menu-background.webp);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-btn {
+  background-color: rgba(127, 255, 212, 0.5);
+  padding: 1em;
+  border: solid;
+  margin: 1em;
+  cursor: pointer;
+}
+.menu-btn:hover {
+  transition: background-color 1s rgba(127, 255, 212, 1) ease-in-out;
+}
 .sky {
   background: url(img/background-dino/sky.png);
   animation: sky 45s infinite linear;
   height: 100vh;
   width: 100vw;
   position: fixed;
-}
-.information-container {
-  width: 100%;
-  height: 20%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  text-align: center;
 }
 .points-container {
   background-color: black;
@@ -120,8 +193,6 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 1rem 2rem;
-}
-.element {
 }
 .star {
   background: url("img/star.png");
@@ -169,7 +240,7 @@ body {
   animation: jump 1.2s steps(12);
 }
 .dino-die {
-  background: url("img/die-8.png");
+  background: url("img/death-8.png");
   animation: die 3s steps(8);
   width: 220px;
 }

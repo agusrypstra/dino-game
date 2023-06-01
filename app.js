@@ -1,51 +1,40 @@
 "use strict";
 
-import Clock from "./classes/Clock.js";
 import GameManager from "./classes/GameManager.js";
+import Clock from "./classes/Clock.js";
 import Meteorite from "./classes/Meteorite.js";
 import Star from "./classes/Star.js";
 
 const containerRef = document.getElementById("container");
-const dinoRef = document.getElementById("dino");
 const pointsRef = document.getElementById("points");
 const timeRef = document.getElementById("time");
-const skyRef = document.getElementById("sky");
-const floorRef = document.getElementById("floor");
+const playBtn = document.getElementById("play-btn");
+const guideBtn = document.getElementById("guide-btn");
+const menuContainer = document.querySelector(".menu-container");
+const guideContainer = document.querySelector(".guide-container");
+const closeBtn = document.querySelector(".close-button");
 
-document.addEventListener("DOMContentLoaded", () => {
+closeBtn.addEventListener("click", () => {
+  guideContainer.classList.add("display-none");
+});
+
+playBtn.addEventListener("click", () => {
+  menuContainer.classList.add("display-none");
+  playGame();
+});
+guideBtn.addEventListener("click", () => {
+  guideContainer.classList.toggle("display-none");
+});
+
+const playGame = () => {
+  const dinoRef = document.getElementById("dino");
+
   const Game = new GameManager(
     dinoRef,
     pointsRef,
     containerRef,
     timeRef,
-    skyRef,
-    floorRef
+    menuContainer
   );
-  let audio = new Audio();
-  audio.src = "./sounds/soundtrack.mp3";
-
-  document.addEventListener("click", () => audio.play());
-  const newMeteorite = new Meteorite(containerRef);
-  const newStar = new Star(containerRef);
-  const newClock = new Clock(containerRef);
   Game.gameLoop();
-  setInterval(() => {
-    if (Game.inGame && Game.time > 0) {
-      newMeteorite.generateObject();
-    }
-  }, 2000);
-  setInterval(() => {
-    if (Game.inGame && Game.time > 0) {
-      newClock.generateObject();
-    }
-  }, 10000);
-  setInterval(() => {
-    if (Game.inGame && Game.time > 0) {
-      newStar.generateObject();
-    }
-  }, 3500);
-  setInterval(() => {
-    Game.time--;
-    console.log(Game.time);
-  }, 1000);
-});
+};
